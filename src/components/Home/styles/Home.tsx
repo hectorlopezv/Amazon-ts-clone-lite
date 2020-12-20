@@ -21,4 +21,10 @@ export const Frame = styled.div`
     
 `;
 
-export const Row = styled.div``;
+export const Row = styled.div`
+
+    display: flex;
+    z-index: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+`;

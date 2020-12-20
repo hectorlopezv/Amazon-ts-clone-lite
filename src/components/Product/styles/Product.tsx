@@ -17,10 +17,12 @@ export const Container = styled.div`
 export const Info = styled.div`
     height: 53px;
     margin-bottom: 15px;
+    width: 100%;
+    text-align: left;
+    
 `;
 
 export const Text = styled.p`
-
 `;
 
 export const Price = styled.p`
@@ -29,6 +31,9 @@ export const Price = styled.p`
 
 export const Rating = styled.div`
 
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;;
 `;
 
 export const Image = styled.img`

@@ -15,6 +15,10 @@ const GlobalStyles =  createGlobalStyle<any>`
         box-sizing: border-box;
         font-size: 62.5%;
     }
+
+    body {
+        background-color: rgb(234, 237, 237);
+    }
 `;
 
 export default GlobalStyles ;
