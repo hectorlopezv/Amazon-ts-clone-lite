@@ -8,6 +8,11 @@ import {
     Option as Hoption,
     Option1,
     Option2,
+    Logo as Hlogo,
+    SearchIco as HsearchIcon,
+    BasketIcon,
+    Basket as Hbasket,
+    BasketText,
 } from './styles/Header';
 
 
@@ -62,6 +67,41 @@ const SpanTwo: React.FC<SpanProps> = ({children, ...props}) => {
       <Option2 {...props}>{children}</Option2> 
     );
 }
+
+export interface LogoProps {
+    src: string;
+    alt: string;
+}
+ 
+const Logo: React.FC<LogoProps> = ({...props}) => {
+    return (  
+        <Hlogo {...props}/>
+    );
+}
+
+export interface SearchIconProps {
+    
+}
+ 
+const SearchIcon: React.FC<SearchIconProps> = () => {
+    return (  
+        <HsearchIcon />
+    );
+}
+ 
+export interface BasketProps {
+    
+}
+ 
+const Basket: React.FC<BasketProps> = ({children, ...props}) => {
+    return ( 
+        <Hbasket {...props}>
+            <BasketIcon />
+            <BasketText>0</BasketText>
+        </Hbasket> 
+      );
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -76,6 +116,9 @@ interface CompoundComponets {
     Input: React.FC<InputProps>;
     SpanOne: React.FC<SpanProps>;
     SpanTwo: React.FC<SpanProps>;
+    Logo: React.FC<LogoProps>;
+    SearchIcon: React.FC<SearchIconProps>;
+    Basket: React.FC<BasketProps>;
 }
 
 const Header: React.FC<HeaderProps> & CompoundComponets = ({children, ...props}) => {
@@ -91,4 +134,7 @@ Header.Option = Option;
 Header.Input = Input;
 Header.SpanOne = SpanOne;
 Header.SpanTwo = SpanTwo;
+Header.Logo = Logo;
+Header.SearchIcon = SearchIcon;
+Header.Basket = Basket;
 export default Header;

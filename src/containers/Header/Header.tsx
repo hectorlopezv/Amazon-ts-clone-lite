@@ -8,10 +8,11 @@ export interface HeaderContainerProps {
 const HeaderContainer: React.FC<HeaderContainerProps> = () => {
     return (
         <Header >
-            <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon logo"/>
-            
+            <Header.Logo src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon logo"/>
             <Header.Search>
                 <Header.Input />
+                <Header.SearchIcon/>
+                
             </Header.Search>
            
             <Header.Nav>
@@ -30,10 +31,8 @@ const HeaderContainer: React.FC<HeaderContainerProps> = () => {
                     <Header.SpanTwo>Prime</Header.SpanTwo>
                 </Header.Option>
 
-                <Header.Option>
-                    <Header.SpanOne></Header.SpanOne>
-                    <Header.SpanTwo></Header.SpanTwo>
-                </Header.Option>
+                <Header.Basket>
+                </Header.Basket>
             </Header.Nav>
 
         </Header>
