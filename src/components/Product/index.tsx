@@ -54,7 +54,7 @@ const Image: React.FC<ImageProps> = ({children, ...props}) => {
 }
  
 export interface ButtonProps {
-    
+    onClick: any;
 }
  
 const Button: React.FC<ButtonProps> = ({children, ...props}) => {
