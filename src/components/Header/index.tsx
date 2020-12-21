@@ -13,10 +13,19 @@ import {
     BasketIcon,
     Basket as Hbasket,
     BasketText,
+    Link as Hlink
 } from './styles/Header';
+import { RouteProps} from "react-router-dom";
 
 
-
+export interface LinkProps {
+    to: string;
+}
+ 
+const Link: React.FC<LinkProps &  RouteProps>  = ({children, to, ...props}) => {
+    return (  <Hlink to={to} {...props}>{children}</Hlink> );
+}
+ 
 
 export interface SearchProps {
     
@@ -119,6 +128,7 @@ interface CompoundComponets {
     Logo: React.FC<LogoProps>;
     SearchIcon: React.FC<SearchIconProps>;
     Basket: React.FC<BasketProps>;
+    Link: React.FC<LinkProps>;
 }
 
 const Header: React.FC<HeaderProps> & CompoundComponets = ({children, ...props}) => {
@@ -137,4 +147,5 @@ Header.SpanTwo = SpanTwo;
 Header.Logo = Logo;
 Header.SearchIcon = SearchIcon;
 Header.Basket = Basket;
+Header.Link = Link;
 export default Header;

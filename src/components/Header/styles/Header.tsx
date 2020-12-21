@@ -1,6 +1,8 @@
 import styled from 'styled-components/macro';
+import {Link as Link_, RouteProps} from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+
 export const Container = styled.div`
     height: 60px;
     display: flex;
@@ -16,6 +18,11 @@ export const Search = styled.div`
     flex: 1;
     align-items: center;
     border-radius: 24px;
+`;
+
+export const Link = styled(Link_)`
+    
+
 `;
 
 export const SearchIco = styled(SearchIcon)`

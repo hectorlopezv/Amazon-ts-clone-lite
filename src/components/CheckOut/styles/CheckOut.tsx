@@ -14,10 +14,14 @@ export const Right = styled.div`
 
 `;
 
+
 export const Img = styled.img`
     width: 100%;
     margin-bottom: 10px;
 `;
 
 export const Title = styled.h2`
+    padding: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid lightgrey;
 `;

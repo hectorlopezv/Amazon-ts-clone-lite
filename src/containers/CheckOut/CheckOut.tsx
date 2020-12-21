@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CheckOut from '../../components/CheckOut';
+import SubTotalContainer from '../../containers/SubTotal/SubTotal';
 
 export interface CheckOutContainerProps {
     
@@ -20,7 +21,8 @@ const CheckOutContainer: React.FC<CheckOutContainerProps> = () => {
             </CheckOut.Left>
 
             <CheckOut.Right>
-                <CheckOut.Title>The Subtotal will go here</CheckOut.Title>
+
+                <SubTotalContainer />
                 
             </CheckOut.Right>
         </CheckOut>

@@ -1,6 +1,8 @@
 import React from 'react'
 import {Container, Left as Cleft, Right as Cright, Img, Title as Ctitle} from './styles/CheckOut';
 
+
+
 export interface TitleProps {
     
 }
@@ -43,6 +45,7 @@ interface CompoundComponets {
     Right: React.FC<RightProps>;
     Image: React.FC<ImageProps>;
     Title: React.FC<TitleProps>;
+ 
 }
 
 export interface CheckOutProps {
