@@ -3,7 +3,8 @@ import * as _ from 'lodash';
 
 const initialState = {
     basket: [] as any,
-    quantityItems: 0
+    quantityItems: 0,
+    totalPrice: 0,
 }
 
 export const AppReducer = (state = initialState, action: any) => {
@@ -12,6 +13,7 @@ export const AppReducer = (state = initialState, action: any) => {
         const index_exists = _.findIndex(state.basket, function(o: any) { return Number(o.id) === Number(action.item.id)  });
         if (index_exists === -1){
             state.quantityItems += 1;
+            state.totalPrice += Number(action.item.price);
             return {
             ...state,
             basket: [...state.basket, action.item]
@@ -20,6 +22,7 @@ export const AppReducer = (state = initialState, action: any) => {
         else {
             state.basket[index_exists].quantity += 1;
             state.quantityItems += 1;
+            state.totalPrice +=  Number(action.item.price);
             return {
                 ...state,
                 basket: [...state.basket]
@@ -34,6 +37,7 @@ export const AppReducer = (state = initialState, action: any) => {
         if(index_exists && state.basket[index_exists].quantity === 1){
             //look if quantity  === 1.... remove from array
             state.quantityItems -= 1;
+            state.totalPrice -= Number(action.item.price);
             //mutated array.... maybe use imutable...
             const filtered_basket = _.remove(state.basket, function(n: any) {
                 return Number(n.id) === Number(action.item.id) 
@@ -46,6 +50,7 @@ export const AppReducer = (state = initialState, action: any) => {
         else if(index_exists) {
             //quantity > 1
             state.basket[index_exists].quantity -= 1;
+            state.totalPrice -= Number(action.item.price);
             return {
                 ...state,
                 basket:[

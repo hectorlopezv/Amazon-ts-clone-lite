@@ -2,16 +2,19 @@ import React from 'react'
 import SubTotal from '../../components/SubTotal';
 import CurrencyFormat from 'react-currency-format';
 import './SubTotal.css';
- 
+import {useSelector} from 'react-redux';
+
 const SubTotalContainer = () => {
+    const price = useSelector((stateCurrent) => stateCurrent.App.totalPrice);
+    const length = useSelector((stateCurrent) => stateCurrent.App.quantityItems);
+
     return (  
         <SubTotal>
             <CurrencyFormat
                 renderText={(value) => (
                 <>
                     <p>
-                    {/* Part of the homework */}
-                        Subtotal (0 items): <strong>{value}</strong>
+                        Subtotal ( {`${length} items`}): <strong>{value}</strong>
                     </p>
                     <small className="subtotal__gift">
                         <input type="checkbox" /> This order contains a gift
@@ -19,7 +22,7 @@ const SubTotalContainer = () => {
                 </>
                 )}
                 decimalScale={2}
-                value={0} // Part of the homework
+                value={price} // Part of the homework
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}
