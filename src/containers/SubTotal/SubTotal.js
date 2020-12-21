@@ -24,7 +24,7 @@ const SubTotalContainer = () => {
                 thousandSeparator={true}
                 prefix={"$"}
             />
-            <SubTotal.Button>the foloowing text</SubTotal.Button>
+            <SubTotal.Button>the following text</SubTotal.Button>
         </SubTotal>
     );
 }

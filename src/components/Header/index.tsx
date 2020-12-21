@@ -16,6 +16,7 @@ import {
     Link as Hlink
 } from './styles/Header';
 import { RouteProps} from "react-router-dom";
+import {useSelector} from 'react-redux';
 
 
 export interface LinkProps {
@@ -103,17 +104,17 @@ export interface BasketProps {
 }
  
 const Basket: React.FC<BasketProps> = ({children, ...props}) => {
+    const lenght = useSelector((stateCurrent: any) => stateCurrent.App.quantityItems);
+   
     return ( 
         <Hbasket {...props}>
             <BasketIcon />
-            <BasketText>0</BasketText>
+            <BasketText>{lenght}</BasketText>
         </Hbasket> 
       );
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 export interface HeaderProps {
 }

@@ -3,6 +3,7 @@ import Product from '../../components/Product';
 import {useSelector, useDispatch} from 'react-redux';
 import {addBasket} from '../../store/Actions/App';
 
+
 export interface ProductContainerProps {
     title: string;
     image: string;
@@ -14,8 +15,8 @@ export interface ProductContainerProps {
 const ProductContainer: React.FC<ProductContainerProps> = ({id, title, image, price, rating}) => {
     //redux dispathc action
     const dispatch = useDispatch();
+    const basket =  useSelector((stateCurrent: any) => stateCurrent.App.basket);
     const AddToBasket = (id: string, title: string, image: string, price: string, rating: number) => dispatch(addBasket(id, title, image, price, rating));
-
     return (  
         <Product>
             <Product.Info>
