@@ -33,7 +33,6 @@ const store = createStore(rootReducer, composeEnchancers(
 
 ReactDOM.render(
   <Provider store={store}>
-
     <React.StrictMode>
       <GlobalStyles />
       <App />

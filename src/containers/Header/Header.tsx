@@ -19,10 +19,14 @@ const HeaderContainer: React.FC<HeaderContainerProps> = () => {
             </Header.Search>
            
             <Header.Nav>
-                <Header.Option>
-                    <Header.SpanOne>Hello</Header.SpanOne>
-                    <Header.SpanTwo>Sign in</Header.SpanTwo>
-                </Header.Option>
+
+                <Header.Link to="/login">
+                    <Header.Option>
+                        <Header.SpanOne>Hello</Header.SpanOne>
+                        <Header.SpanTwo>Sign in</Header.SpanTwo>
+                    </Header.Option>
+                </Header.Link>
+       
 
                 <Header.Option>
                     <Header.SpanOne>Returns</Header.SpanOne>
