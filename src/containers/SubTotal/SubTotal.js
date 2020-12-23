@@ -22,7 +22,7 @@ const SubTotalContainer = () => {
                 </>
                 )}
                 decimalScale={2}
-                value={price} // Part of the homework
+                value={price } 
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}

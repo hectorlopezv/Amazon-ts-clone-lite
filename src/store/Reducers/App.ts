@@ -34,22 +34,22 @@ export const AppReducer = (state = initialState, action: any) => {
     if(action.type === ActionTypes.DELETE_FROM_BASKET)
     {
         const index_exists = _.findIndex(state.basket, function(o: any) { return Number(o.id) === Number(action.item.id)  });
-        if(index_exists && state.basket[index_exists].quantity === 1){
-            //look if quantity  === 1.... remove from array
+        
+        if(index_exists >= 0 && state.basket[index_exists].quantity === 1){
             state.quantityItems -= 1;
             state.totalPrice -= Number(action.item.price);
             //mutated array.... maybe use imutable...
             const filtered_basket = _.remove(state.basket, function(n: any) {
-                return Number(n.id) === Number(action.item.id) 
+                return Number(n.id) !== Number(action.item.id);
               });
             return {
                 ...state,
-                basket: [_.cloneDeep(filtered_basket)]
+                basket: _.cloneDeep(filtered_basket)
             }
         }
-        else if(index_exists) {
-            //quantity > 1
+        else if(index_exists >= 0){
             state.basket[index_exists].quantity -= 1;
+            state.quantityItems -= 1;
             state.totalPrice -= Number(action.item.price);
             return {
                 ...state,

@@ -18,6 +18,10 @@ const App: React.FC<AppProps> = () => {
               <CheckOutContainer />
               
             </Route>
+            
+            <Route exact path="/login">
+                <h1>Login</h1>
+            </Route>
 
             <Route exact path="/">
               <HeaderContainer />

@@ -2,7 +2,6 @@ import * as actionTypes from './ActionTypes';
 
 
 export const addBasket = (id: string, title: string, image: string, price: string, rating: number) => {
-    console.log('el Price', price);
     return {
         type: actionTypes.ADD_TO_BASKET,
         item: {
@@ -15,3 +14,14 @@ export const addBasket = (id: string, title: string, image: string, price: strin
         }
     }
 }
+
+export const deleteItemBasket = (id: string, price: string) => {
+    return {
+        type: actionTypes.DELETE_FROM_BASKET,
+        item: {
+            id: id,
+            price: price
+        }
+    }
+}
+

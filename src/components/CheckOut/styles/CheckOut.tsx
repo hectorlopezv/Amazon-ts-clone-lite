@@ -23,5 +23,7 @@ export const Img = styled.img`
 export const Title = styled.h2`
     padding: 10px;
     margin-right: 10px;
+    text-align: start;
+    font-weight: 600;
     border-bottom: 1px solid lightgrey;
 `;
