@@ -2,24 +2,47 @@ import React from 'react';
 import Login from '../../components/Login';
 import {Link} from 'react-router-dom';
 import { Form, Field, FormSpy } from 'react-final-form';
+import {db, auth} from '../../lib/firebase.prod';
+import {useHistory} from 'react-router-dom';
+
+
+
 export interface LoginFormProps {
     subscription: { submitting: boolean, pristine: boolean } 
 }
  
 const LoginForm: React.FC<LoginFormProps> = ({children, subscription, ...props}) => {
-    const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))
-     const required = (value: any) => (value ? undefined : 'Required');
+    const history = useHistory();
+    const required = (value: any) => (value ? undefined : 'Required');
+
     const onSubmit = async (values: any) => {
-        //Sigin IN using authentication
-        console.log(values);
-        await sleep(300)
-        window.alert(JSON.stringify(values))
+        //Sigin IN using authentication and push to Home page
+        //and push to the Store! and LocalStorage
+        auth.signInWithEmailAndPassword(values.Email, values.Password)
+        .then((auth) => {
+            history.push('/');
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 
     const onCreateAccount = (values: any) => {
         //create Account
-        console.log(values);
+        auth.createUserWithEmailAndPassword(values.Email, values.Password)
+        .then((auth) => {
+            //put it the redux store and Local Storage
+            console.log(auth);
+            if(auth){
+                history.push('/');
+            }
+        })
+        .catch(error => {
+            //put Modal for the error
+            console.log(error); 
+        })
     }
+
     return (  
     <Login>
         <Link to="/">
@@ -33,12 +56,12 @@ const LoginForm: React.FC<LoginFormProps> = ({children, subscription, ...props})
                 subscription={subscription}
                 render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
-                    <Field name="firstName" validate={required} render={(props: any)=> (
+                    <Field name="Email" validate={required} render={(props: any)=> (
                     <div>
                         <Login.Label>E-mail</Login.Label>
                         <Login.Input type="text" {...props.input}/> 
                     </div>)}/>
-                    <Field name="lastName" validate={required} render={(props: any)=> (
+                    <Field name="Password" validate={required} render={(props: any)=> (
                     <div>
                         <Login.Label>Password</Login.Label>
                         <Login.Input type="password" {...props.input}/> 

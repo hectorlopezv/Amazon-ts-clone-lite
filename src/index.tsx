@@ -9,14 +9,15 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import {AppReducer} from './store/Reducers/App';
-
+import {UserReducer} from './store/Reducers/User';
 
 
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const rootReducer = combineReducers({
-  App: AppReducer
+  App: AppReducer,
+  User: UserReducer
 });
 
 const composeEnchancers = composeWithDevTools({

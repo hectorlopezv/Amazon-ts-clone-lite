@@ -6,11 +6,13 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CheckOutContainer from './containers/CheckOut/CheckOut';
 import MyForm from './containers/Login/Login';
 import LoginForm from './containers/Login/LoginForm';
+import useAuth from './hooks/useAuth';
 export interface AppProps {
 
 }
 
 const App: React.FC<AppProps> = () => {
+  const [user] = useAuth();
   return (
     <Router>
       <div className="app">
