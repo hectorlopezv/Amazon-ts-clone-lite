@@ -1,20 +1,23 @@
 import React from 'react';
 import CheckOutProduct from '../../../components/CheckOut/CheckOutProduct';
 
-export interface CheckOutProductContainerProps {
-    id: string;
-    title: string;
-    image: string;
-    price: string;
-    rating: string;
-    quantity: string;
-    onClick: any;
-}
- 
-const CheckOutProductContainer: React.FC<CheckOutProductContainerProps> = ({onClick, quantity,id, title, image, price, rating}) => {
-    return (
+// export interface CheckOutProductContainerProps {
+//     id: string;
+//     title: string;
+//     image: string;
+//     price: string;
+//     rating: string;
+//     quantity: string;
+//     onClick: any;
+//     ref?: any;
+// }
+class CheckOutProductContainer extends React.Component {
+    
+    render(){
+        const {onClick, quantity,id, title, image, price, rating} = this.props; 
+        return (
 
-        <CheckOutProduct>
+            <CheckOutProduct ref={this.ref}>
             <CheckOutProduct.Image src={image} alt="" />
             
             <CheckOutProduct.Info>
@@ -29,7 +32,8 @@ const CheckOutProductContainer: React.FC<CheckOutProductContainerProps> = ({onCl
             </CheckOutProduct.Info>
             
         </CheckOutProduct>
-      );
+        );
+    }
 }
- 
+
 export default CheckOutProductContainer;

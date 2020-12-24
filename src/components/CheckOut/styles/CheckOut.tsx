@@ -25,5 +25,6 @@ export const Title = styled.h2`
     margin-right: 10px;
     text-align: start;
     font-weight: 600;
+    font-size: 20px;
     border-bottom: 1px solid lightgrey;
 `;

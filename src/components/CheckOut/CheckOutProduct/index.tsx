@@ -69,7 +69,7 @@ interface CompundCheckOutProduct{
 }
 
 export interface CheckOutProductProps {
-    
+    ref?: any;
 }
  
 const CheckOutProduct: React.FC<CheckOutProductProps> & CompundCheckOutProduct = ({children, ...props}) => {

@@ -12,6 +12,11 @@ export const Container = styled.div`
     min-width: 100px;
     background-color: white;
     z-index: 1;
+    transition: all 0.2s;
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 10px black;
+    }
 `;
 
 export const Info = styled.div`
