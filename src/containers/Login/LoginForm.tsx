@@ -30,12 +30,14 @@ const LoginForm: React.FC<LoginFormProps> = ({children, subscription, ...props})
     const onCreateAccount = (values: any) => {
         //create Account
         auth.createUserWithEmailAndPassword(values.Email, values.Password)
-        .then((auth) => {
+        .then((auth: any)=> {
+            auth.user.updateProfile({
+                displayName: values.Email,
+            });
+        })
+        .then(() => {
             //put it the redux store and Local Storage
-            console.log(auth);
-            if(auth){
                 history.push('/');
-            }
         })
         .catch(error => {
             //put Modal for the error

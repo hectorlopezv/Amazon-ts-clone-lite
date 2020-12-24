@@ -46,7 +46,7 @@ const Nav: React.FC<NavProps> = ({children, ...props}) => {
 }
 
 export interface OptionProps {
-    
+    onClick?: any;
 }
  
 const Option: React.FC<OptionProps> = ({children, ...props}) => {

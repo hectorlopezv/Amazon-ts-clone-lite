@@ -4,7 +4,7 @@ import HeaderContainer from './containers/Header/Header';
 import HomeContainer from './containers/Home/Home';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CheckOutContainer from './containers/CheckOut/CheckOut';
-import MyForm from './containers/Login/Login';
+
 import LoginForm from './containers/Login/LoginForm';
 import useAuth from './hooks/useAuth';
 export interface AppProps {
@@ -24,8 +24,6 @@ const App: React.FC<AppProps> = () => {
             </Route>
             
             <Route exact path="/login">
-                <h1>Login</h1>
-                <MyForm />
                 <LoginForm subscription={{ submitting: true, pristine: true }} />
             </Route>
 

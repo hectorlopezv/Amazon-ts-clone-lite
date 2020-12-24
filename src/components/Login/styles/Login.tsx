@@ -5,6 +5,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: white;
 `;
 
@@ -34,20 +35,17 @@ export const Button = styled.button`
 export const Image = styled.img`
     object-fit: contain;
     width: 100px;
-    margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
 `;
 
 export const Frame = styled.div`
-    width: 300px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 3px;
     border: 1px solid lightgrey;
-    padding: 20px;
+    padding: 40px 40px;
     text-align: left;
 
 `;
@@ -59,12 +57,13 @@ export const Title = styled.h1`
 
 export const Label = styled.h5`
     margin-bottom: 5px;
-    font-size: 10px;
+    font-size: 14px;
 `;
 
 export const Text = styled.p`
     margin-top: 10px;
     font-size: 9px;
+    margin-bottom: 10px;
 `;
 
 export const Input = styled.input`
