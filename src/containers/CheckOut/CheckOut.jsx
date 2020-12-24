@@ -21,7 +21,7 @@ const CheckOutContainer  = () => {
                     alt=""
                 />
                 <CheckOut.Title>Your Shopping Basket</CheckOut.Title>
-                <FlipMove enterAnimation="elevator" leaveAnimation="elevator" >
+                <FlipMove enterAnimation="elevator" leaveAnimation="fade" >
                         {basket?.map((item) => (
                             <CheckOutProductContainer 
                             id={item.id}

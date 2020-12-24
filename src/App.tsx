@@ -4,7 +4,7 @@ import HeaderContainer from './containers/Header/Header';
 import HomeContainer from './containers/Home/Home';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CheckOutContainer from './containers/CheckOut/CheckOut';
-
+import FooterContainer from './containers/Footer/Footer';
 import LoginForm from './containers/Login/LoginForm';
 import useAuth from './hooks/useAuth';
 export interface AppProps {
@@ -20,7 +20,6 @@ const App: React.FC<AppProps> = () => {
             <Route exact path="/checkout">
               <HeaderContainer />
               <CheckOutContainer />
-              
             </Route>
             
             <Route exact path="/login">
@@ -30,6 +29,7 @@ const App: React.FC<AppProps> = () => {
             <Route exact path="/">
               <HeaderContainer />
               <HomeContainer />
+              <FooterContainer />
             </Route>
 
         </Switch>

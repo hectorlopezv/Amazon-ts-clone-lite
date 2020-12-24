@@ -1,16 +1,6 @@
 import React from 'react';
 import CheckOutProduct from '../../../components/CheckOut/CheckOutProduct';
 
-// export interface CheckOutProductContainerProps {
-//     id: string;
-//     title: string;
-//     image: string;
-//     price: string;
-//     rating: string;
-//     quantity: string;
-//     onClick: any;
-//     ref?: any;
-// }
 class CheckOutProductContainer extends React.Component {
     
     render(){
