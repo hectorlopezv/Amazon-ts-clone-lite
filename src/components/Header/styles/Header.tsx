@@ -27,8 +27,10 @@ export const Link = styled(Link_)`
 
 export const SearchIco = styled(SearchIcon)`
     padding: 1.5px;
-    background-color: #cd9042;
-    font-size: 20px !important;
+    background-color: #febd69;
+    cursor: pointer;
+    border: none;
+    font-size: 25px !important;
 `;
 
 
@@ -41,9 +43,15 @@ export const Logo = styled.img`
 
 export const Input = styled.input`
     height: 12px;
-    padding: 10px;
     border: none;
+    border-radius: 2px;
     width: 100%;
+    padding: 15px 5px 10px 10px;
+    line-height: 15px;
+    font-size: 15px;
+    color: black;
+    outline: 0;
+    text-indent: 8px;
 `;
 
 export const Frame = styled.div`
