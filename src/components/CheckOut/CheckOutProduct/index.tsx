@@ -57,7 +57,8 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({children, ...props}) => {
     return (  <Cbutton {...props}>{children}</Cbutton>);
 }
- 
+
+
 /////////////////////////////////////////////////////////////////////////////////////////
 interface CompundCheckOutProduct{
     Image: React.FC<ImageProps>;
@@ -75,6 +76,7 @@ export interface CheckOutProductProps {
 const CheckOutProduct: React.FC<CheckOutProductProps> & CompundCheckOutProduct = ({children, ...props}) => {
     return ( <Container {...props}>{children}</Container> );
 }
+
 CheckOutProduct.Image = Image;
 CheckOutProduct.Info = Info;
 CheckOutProduct.Title = Title;

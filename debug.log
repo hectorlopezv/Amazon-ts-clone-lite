@@ -5,3 +5,4 @@
 [1223/221306.906:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
 [1223/221306.907:ERROR:exception_snapshot_win.cc(99)] thread ID 15260 not found in process
 [1223/232857.982:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1224/204243.026:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)

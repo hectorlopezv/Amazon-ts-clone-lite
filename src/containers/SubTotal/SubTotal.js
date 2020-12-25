@@ -3,17 +3,17 @@ import SubTotal from '../../components/SubTotal';
 import CurrencyFormat from 'react-currency-format';
 import './SubTotal.css';
 import {useSelector} from 'react-redux';
-
+import {useHistory} from 'react-router-dom';
 const SubTotalContainer = () => {
     const price = useSelector((stateCurrent) => stateCurrent.App.totalPrice);
     const length = useSelector((stateCurrent) => stateCurrent.App.quantityItems);
-
+    const history = useHistory();
     return (  
         <SubTotal>
             <CurrencyFormat
                 renderText={(value) => (
                 <>
-                    <p>
+                    <p style={{'font-size': '12px', 'text-align': 'left', 'margin-bottom': '7px'}}>
                         Subtotal ( {`${length} items`}): <strong>{value}</strong>
                     </p>
                     <small className="subtotal__gift">
@@ -27,7 +27,7 @@ const SubTotalContainer = () => {
                 thousandSeparator={true}
                 prefix={"$"}
             />
-            <SubTotal.Button>the following text</SubTotal.Button>
+            <SubTotal.Button onClick={() => history.push('/payment') }>Proceed To Checkout</SubTotal.Button> 
         </SubTotal>
     );
 }

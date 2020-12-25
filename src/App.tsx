@@ -7,6 +7,8 @@ import CheckOutContainer from './containers/CheckOut/CheckOut';
 import FooterContainer from './containers/Footer/Footer';
 import LoginForm from './containers/Login/LoginForm';
 import useAuth from './hooks/useAuth';
+import PaymentContainer from './containers/Payment/Payment';
+
 export interface AppProps {
 
 }
@@ -17,6 +19,12 @@ const App: React.FC<AppProps> = () => {
     <Router>
       <div className="app">
         <Switch>
+            
+            <Route exact path="/payment">
+              <HeaderContainer />
+              <PaymentContainer />
+            </Route>
+            
             <Route exact path="/checkout">
               <HeaderContainer />
               <CheckOutContainer />
