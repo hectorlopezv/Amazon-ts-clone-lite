@@ -5,8 +5,28 @@ import {Container,
     Address as Paddress,
     Section as Psection,
     Frame as Pframe,
-    Details as Pdetails
+    Details as Pdetails,
+    Price as Pprice,
+    Button as Pbutton
 } from './styles/Payment';
+
+export interface ButtonProps {
+    
+}
+ 
+const Button: React.FC<ButtonProps> = ({children, ...props}) => {
+    return ( <Pbutton {...props}>{children}</Pbutton> );
+}
+ 
+
+export interface PriceProps {
+    
+}
+ 
+const Price: React.FC<PriceProps> = ({children, ...props}) => {
+    return ( <Pprice {...props}>{children}</Pprice>  );
+}
+ 
 
 export interface DetailsProps {
     
@@ -70,6 +90,8 @@ interface CompoundComponets {
     Section: React.FC<SectionProps>;
     Frame: React.FC<FrameProps>;
     Details: React.FC<DetailsProps>;
+    Price: React.FC<PriceProps>;
+    Button: React.FC<ButtonProps>;
 }
 export interface PaymentProps {
     
@@ -84,4 +106,6 @@ Payment.Address = Address;
 Payment.Section = Section;
 Payment.Frame = Frame;
 Payment.Details = Details;
+Payment.Price = Price;
+Payment.Button = Button;
 export default Payment;

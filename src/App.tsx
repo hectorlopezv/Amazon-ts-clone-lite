@@ -8,10 +8,12 @@ import FooterContainer from './containers/Footer/Footer';
 import LoginForm from './containers/Login/LoginForm';
 import useAuth from './hooks/useAuth';
 import PaymentContainer from './containers/Payment/Payment';
-
+import {Elements, CardElement} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 export interface AppProps {
 
 }
+const stripePromise = loadStripe("pk_test_51I1m2jHKRERovIHLd2R7ojfZ81w0lw0noe30D1tI0uHoRIIwYNEhSjjYfzBOACoFXJEeRKmdcRzZVT0hwtLahYvv00iBIpjMRN");
 
 const App: React.FC<AppProps> = () => {
   const [user] = useAuth();
@@ -22,7 +24,11 @@ const App: React.FC<AppProps> = () => {
             
             <Route exact path="/payment">
               <HeaderContainer />
-              <PaymentContainer />
+
+              <Elements stripe={stripePromise}>
+                <PaymentContainer />
+              </Elements>
+           
             </Route>
             
             <Route exact path="/checkout">
