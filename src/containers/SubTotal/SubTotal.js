@@ -13,7 +13,7 @@ const SubTotalContainer = () => {
             <CurrencyFormat
                 renderText={(value) => (
                 <>
-                    <p style={{'font-size': '12px', 'text-align': 'left', 'margin-bottom': '7px'}}>
+                    <p style={{'fontSize': '12px', 'textAlign': 'left', 'marginBottom': '7px'}}>
                         Subtotal ( {`${length} items`}): <strong>{value}</strong>
                     </p>
                     <small className="subtotal__gift">

@@ -32,7 +32,7 @@ const PaymentContainer= () => {
         const getClientSecret = async () => {
             //client secret to charge the customer
             const response = await instance({
-                method: 'POST',
+                method: 'post',
                 //stripe expects the total in a currencies subunits
                 url: `/payments/create?total=${totalOrder*100}`
             });
@@ -41,7 +41,7 @@ const PaymentContainer= () => {
         getClientSecret();
     }, [basket, totalOrder]);
 
-
+    console.log('the secret is ',clientSecret );
     const handleSubmit = async (event) => {
         //handle strypejs stuff
         event.preventDefault();
@@ -60,6 +60,7 @@ const PaymentContainer= () => {
             setError(null);
             setprocessing(false);
             history.replace('/orders');//replace previos page to prevent loop
+            //prevent to come back to previos page
         }).catch((error) => {
             setsucceeded(false);
             setError(error.message);
