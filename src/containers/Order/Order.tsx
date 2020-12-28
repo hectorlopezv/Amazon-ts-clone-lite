@@ -26,7 +26,8 @@ const OrderContainer: React.FC<OrderContainerProps> = () => {
             });
         }
         else {
-            setOrders([])
+            setOrders([]);
+            
         }
 
     }, [user]);
