@@ -11,6 +11,7 @@ import OrderContainer from './containers/Order/Order';
 import PaymentContainer from './containers/Payment/Payment';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
+import IsUserRedirect, {ProtectedRoute} from './utils/routes';
 export interface AppProps {
 
 }
@@ -27,15 +28,15 @@ const App: React.FC<AppProps> = () => {
               <HeaderContainer />
               <OrderContainer />
             </Route>
+            <ProtectedRoute user={user} path="/payment" exact={true} >
+                <HeaderContainer />
 
-            <Route exact path="/payment">
-              <HeaderContainer />
+                <Elements stripe={stripePromise}>
+                  <PaymentContainer />
+                </Elements>
 
-              <Elements stripe={stripePromise}>
-                <PaymentContainer />
-              </Elements>
-           
-            </Route>
+            </ProtectedRoute>
+
             
             <Route exact path="/checkout">
               <HeaderContainer />

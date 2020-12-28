@@ -49,6 +49,11 @@ const PaymentContainer= () => {
     const handleSubmit = async (event) => {
         //handle strypejs stuff
         event.preventDefault();
+        //protect if user is not sign in
+        const user_check =  user ?? 1;
+        if(user_check === 1)return;//if user is not login.
+
+
         //promise process is doing
         setprocessing(true);
 

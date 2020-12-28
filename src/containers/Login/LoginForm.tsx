@@ -20,6 +20,12 @@ const LoginForm: React.FC<LoginFormProps> = ({children, subscription, ...props})
         //and push to the Store! and LocalStorage
         auth.signInWithEmailAndPassword(values.Email, values.Password)
         .then((auth) => {
+
+            const previous: any = history.location;
+            if(previous?.state?.from?.pathname === '/payment'){
+                history.push('/orders')
+                return;
+            }
             history.push('/');
         })
         .catch((error) => {
@@ -37,7 +43,8 @@ const LoginForm: React.FC<LoginFormProps> = ({children, subscription, ...props})
         })
         .then(() => {
             //put it the redux store and Local Storage
-                history.push('/');
+            console.log(history)    
+            history.push('/');
         })
         .catch(error => {
             //put Modal for the error
