@@ -6,10 +6,11 @@ import { deleteItemBasket } from '../../store/Actions/App';
 import FlipMove from 'react-flip-move';
 import {Link} from 'react-router-dom';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
+//get info from card(use elements), (usetripe) to use processing info and finishi transactions
 import CurrencyFormat from 'react-currency-format';
 import {useHistory} from 'react-router-dom';
 import instance from '../../axios';
-
+ 
 const PaymentContainer= () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -31,11 +32,14 @@ const PaymentContainer= () => {
         //when basket items changes because total changes
         const getClientSecret = async () => {
             //client secret to charge the customer
+            console.log(totalOrder)
+            if (totalOrder < 1)return;
             const response = await instance({
                 method: 'post',
                 //stripe expects the total in a currencies subunits
-                url: `/payments/create?total=${totalOrder*100}`
+                url: `/payments/create?total=${Math.trunc(totalOrder*100)}`,
             });
+            console.log(response)
             setclientSecret(response.data.clientSecret);
         }
         getClientSecret();
