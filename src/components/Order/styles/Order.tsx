@@ -1,18 +1,11 @@
 import styled from 'styled-components/macro';
 
-export const Container = styled.div`
-    position: relative;
-
-`;
-export const Title = styled.h1`
-    padding: 10px;
-`;
-
 export const Item = styled.div`
     text-align: left;
 
     & h3{
         text-align: right;
+        margin-bottom: 30px;
     }
 
     & h2{
@@ -26,13 +19,26 @@ export const Item = styled.div`
     }
     
 `;
+
 export const Frame = styled.div`
     background-color: ${(prop: any)=> prop.background ? 'transparent' : 'white'};
     width: 88%;
     padding: 10px 8px;
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, .8%);
+    margin: 0 auto;
+
     border: ${(prop: any)=> prop.background ? 'none' : '1px solid lightgrey'};
+
 `;
+
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    ${Frame}{
+        margin-bottom: 15px;
+    }
+`;
+export const Title = styled.h1`
+    padding: 10px;
+`;
+
+

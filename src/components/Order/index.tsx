@@ -24,7 +24,7 @@ const Item: React.FC<ItemProps> = ({order}) => {
         <p className="order_id">
             <small>{order.id}</small>
         </p>
-        <CurrencyContainer amount={order.data.amount} />  
+        
         {order.data.basket?.map((item: any) =>(
             <CheckOutProductContainer
             // quantity,id, title, image, price, rating
@@ -35,7 +35,9 @@ const Item: React.FC<ItemProps> = ({order}) => {
                 price={item.price}
                 rating={item.rating}
             />
+            
         ))}
+        <CurrencyContainer amount={order.data.amount} />  
          
     </Oitem>);
 }

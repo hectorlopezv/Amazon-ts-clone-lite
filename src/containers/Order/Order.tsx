@@ -36,11 +36,13 @@ const OrderContainer: React.FC<OrderContainerProps> = () => {
        
         <Order>
              <Order.Title>Your Orders</Order.Title>
-            <Order.Frame background={Orders.length === 0 ? true: false}>
+
                 {Orders?.map((order: any) =>{
-                    return <Order.Item order={order}/>
+                    return <Order.Frame background={Order.length === 0 ? true: false}>
+                         <Order.Item order={order}/>
+                    </Order.Frame>
                 })}
-            </Order.Frame>
+            
         </Order>
         </>
      );
