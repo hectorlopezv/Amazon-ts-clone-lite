@@ -27,12 +27,12 @@ export const Item = styled.div`
     
 `;
 export const Frame = styled.div`
-    background-color: white;
+    background-color: ${(prop: any)=> prop.background ? 'transparent' : 'white'};
     width: 88%;
     padding: 10px 8px;
     position: absolute;
-    top: 50%;
+    top: 85%;
     left: 50%;
-    transform: translate(-50%, 5%);
-    border: 1px solid lightgrey;
+    transform: translate(-50%, .8%);
+    border: ${(prop: any)=> prop.background ? 'none' : '1px solid lightgrey'};
 `;

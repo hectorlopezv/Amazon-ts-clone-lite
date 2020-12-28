@@ -4,7 +4,7 @@ import moment from 'moment';
 import CurrencyContainer from '../Currency/Currency';
 import CheckOutProductContainer from '../../containers/CheckOut/CheckOutProduct/CheckOutProduct';
 export interface FrameProps {
-    
+    background: boolean;
 }
  
 const Frame: React.FC<FrameProps> = ({children, ...props}) => {

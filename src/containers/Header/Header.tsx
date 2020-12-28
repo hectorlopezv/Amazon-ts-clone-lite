@@ -38,11 +38,12 @@ const HeaderContainer: React.FC<HeaderContainerProps> = () => {
                     </Header.Option>
                 </Header.Link>
        
-
-                <Header.Option>
-                    <Header.SpanOne>Returns</Header.SpanOne>
-                    <Header.SpanTwo>& Orders</Header.SpanTwo>
-                </Header.Option>
+                <Header.Link to={!user ? "/orders": '/'}>
+                    <Header.Option>
+                        <Header.SpanOne>Returns</Header.SpanOne>
+                        <Header.SpanTwo>& Orders</Header.SpanTwo>
+                    </Header.Option>
+                </Header.Link>
 
                 <Header.Option>
                     <Header.SpanOne>Your</Header.SpanOne>

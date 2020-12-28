@@ -10,7 +10,7 @@ const OrderContainer: React.FC<OrderContainerProps> = () => {
     //fetching orders for the user logged into FIRESTORE
     const user = useSelector((stateCurrent: any)=> stateCurrent.User);
     const basket = useSelector((stateCurrent: any) => stateCurrent.App.basket);
-    const [Orders, setOrders] = useState<[]>();
+    const [Orders, setOrders] = useState<[]>([]);
     
     useEffect(() => {
         if(user) {
@@ -36,7 +36,7 @@ const OrderContainer: React.FC<OrderContainerProps> = () => {
        
         <Order>
              <Order.Title>Your Orders</Order.Title>
-            <Order.Frame>
+            <Order.Frame background={Orders.length === 0 ? true: false}>
                 {Orders?.map((order: any) =>{
                     return <Order.Item order={order}/>
                 })}

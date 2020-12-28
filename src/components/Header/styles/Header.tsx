@@ -21,7 +21,8 @@ export const Search = styled.div`
 `;
 
 export const Link = styled(Link_)`
-    
+      text-decoration: none ;
+      color: inherit;
 
 `;
 

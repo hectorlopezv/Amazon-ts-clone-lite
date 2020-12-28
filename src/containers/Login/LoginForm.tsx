@@ -22,8 +22,9 @@ const LoginForm: React.FC<LoginFormProps> = ({children, subscription, ...props})
         .then((auth) => {
 
             const previous: any = history.location;
+            console.log(previous);
             if(previous?.state?.from?.pathname === '/payment'){
-                history.push('/orders')
+                history.push('/checkout')
                 return;
             }
             history.push('/');
