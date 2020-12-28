@@ -8,6 +8,16 @@ const initialState = {
 }
 
 export const AppReducer = (state = initialState, action: any) => {
+
+    if(action.type === ActionTypes.EMPTY_BASKET){
+        return {
+            ...state,
+            basket: [],
+            quantityItems:0,
+            totalPrice: 0
+        }  
+    }
+
     if(action.type === ActionTypes.ADD_TO_BASKET)
     {
         const index_exists = _.findIndex(state.basket, function(o: any) { return Number(o.id) === Number(action.item.id)  });

@@ -25,3 +25,9 @@ export const deleteItemBasket = (id: string, price: string) => {
     }
 }
 
+
+export const emptyBasket = () => {
+    return {
+        type: actionTypes.EMPTY_BASKET
+    }
+}

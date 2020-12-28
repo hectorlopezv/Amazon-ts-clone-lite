@@ -7,8 +7,9 @@ import CheckOutContainer from './containers/CheckOut/CheckOut';
 import FooterContainer from './containers/Footer/Footer';
 import LoginForm from './containers/Login/LoginForm';
 import useAuth from './hooks/useAuth';
+import OrderContainer from './containers/Order/Order';
 import PaymentContainer from './containers/Payment/Payment';
-import {Elements, CardElement} from '@stripe/react-stripe-js';
+import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 export interface AppProps {
 
@@ -22,6 +23,11 @@ const App: React.FC<AppProps> = () => {
       <div className="app">
         <Switch>
             
+            <Route exact path="/orders">
+              <HeaderContainer />
+              <OrderContainer />
+            </Route>
+
             <Route exact path="/payment">
               <HeaderContainer />
 

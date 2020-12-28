@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Payment from '../../components/Payment';
 import CheckOutProductContainer from '../CheckOut/CheckOutProduct/CheckOutProduct';
 import {useDispatch, useSelector} from 'react-redux';
-import { deleteItemBasket } from '../../store/Actions/App';
+import { deleteItemBasket, emptyBasket } from '../../store/Actions/App';
 import FlipMove from 'react-flip-move';
 import {Link} from 'react-router-dom';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
@@ -10,7 +10,7 @@ import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import {useHistory} from 'react-router-dom';
 import instance from '../../axios';
- 
+import {db } from '../../lib/firebase.prod';
 const PaymentContainer= () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -26,6 +26,7 @@ const PaymentContainer= () => {
     const [succeeded, setsucceeded] = useState(false);
     const [clientSecret, setclientSecret] = useState(true);
     const totalOrder = useSelector(stateCurrent => stateCurrent.App.totalPrice);
+    const empty_basket = () => dispatch(emptyBasket());
     //get secret after rendering the components in the first cycle
     useEffect(() => {
         //generate the special stripe secret which allows us to charge a customer
@@ -45,7 +46,6 @@ const PaymentContainer= () => {
         getClientSecret();
     }, [basket, totalOrder]);
 
-    console.log('the secret is ',clientSecret );
     const handleSubmit = async (event) => {
         //handle strypejs stuff
         event.preventDefault();
@@ -59,10 +59,31 @@ const PaymentContainer= () => {
                 card: elements.getElement(CardElement)
             }
         }).then((response) => {
+            console.log('entro el thenn del handle')
             const {paymentIntent} = response;
+
+            //push it to the store
+            console.log('el user', user.uid);
+            console.log('el response', response);
+       
+            db.collection('users')
+            .doc(user?.uid)
+            .collection('orders')
+            .doc(paymentIntent.id)
+            .set({//add info to doc
+                basket: basket,
+                amount: paymentIntent.amount,
+                created: paymentIntent.created,
+            })
+
+
+
+
             setsucceeded(true);
             setError(null);
             setprocessing(false);
+            empty_basket();
+            //processing || Disabled || succeeded
             history.replace('/orders');//replace previos page to prevent loop
             //prevent to come back to previos page
         }).catch((error) => {
@@ -77,7 +98,6 @@ const PaymentContainer= () => {
         //handles changes in card details
         //listen change sin card element
         //display any errors ast he customer types their card deitals
-        event.preventDefault();
         setDisabled(event.empty);
         setError(event.error ? event.error.message: "");
     }
