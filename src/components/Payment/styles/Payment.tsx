@@ -44,6 +44,9 @@ export const Frame = styled.div`
 
 export const Details = styled.div`
     flex: 0.8;
+    form {
+        max-width: 600px;
+    }
 `;
 
 export const Price = styled.div`
@@ -59,4 +62,13 @@ export const Price = styled.div`
 `;
 
 export const Button = styled.button`
+    background: #f0c14b;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    font-weight: bolder;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
 `;

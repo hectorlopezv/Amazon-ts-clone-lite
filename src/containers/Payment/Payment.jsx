@@ -155,28 +155,28 @@ const PaymentContainer= () => {
             {/*payment section - Payment method*/}
             <Payment.Section>
                 <Payment.Title>
-                    <h3>Review items and delivery</h3>
+                    <h3>Payment Method</h3>
                 </Payment.Title>
 
                 <Payment.Details>
                     {/* stripe magic will go here*/}
                     <form onSubmit={handleSubmit}>
                         <CardElement onChange={handleChange}/>
-                        <Payment.Price>
-                            <CurrencyFormat
-                                renderText={(value) => (
-                                    <h3>Order Total: {value}</h3>
-                                )}
-                                decimalScale={2}
-                                value={totalOrder} 
-                                displayType={"text"}
-                                thousandSeparator={true}
-                                prefix={"$"}
-                            />
-                            <Payment.Button disabled={processing || Disabled || succeeded}>
-                                <span>{processing ? <p>Proccessing</p> : "Buy Now"}</span>
-                            </Payment.Button>
-                        </Payment.Price>
+                            <Payment.Price>
+                                <CurrencyFormat
+                                    renderText={(value) => (
+                                        <h3>Order Total: {value}</h3>
+                                    )}
+                                    decimalScale={2}
+                                    value={totalOrder} 
+                                    displayType={"text"}
+                                    thousandSeparator={true}
+                                    prefix={"$"}
+                                />
+                                <Payment.Button disabled={processing || Disabled || succeeded}>
+                                    <span>{processing ? <p>Proccessing</p> : "Buy Now"}</span>
+                                </Payment.Button>
+                            </Payment.Price>
 
                         {/*error*/}
                         {Error && <div>{Error}</div>}
